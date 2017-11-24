@@ -3,8 +3,22 @@
 
 ## Write a short comment describing this function
 
-makeCacheMatrix <- function(x = matrix()) {
 
+## Storing x and inv in the environment of set , get, setInverse and getInverse
+
+makeCacheMatrix <- function(x = matrix()) {
+  inv<- NULL
+  set<- function(y){
+    x<<-y
+    y<<-NULL
+  }
+  get<-function() x
+  setInverse<-function() inv<<-solve(x)
+  getInverse<-function() inv
+  list(set=set,
+       get=get,
+       setIvserse=setInverse,
+       getInverse=getInverse)
 }
 
 
